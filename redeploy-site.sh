@@ -1,15 +1,11 @@
 #!/bin/bash
 
-#tmux kill-server
-#cd amber-web
-#git fetch && git reset origin/main --hard
-#source python3-virtualenv/bin/activate
-#pip install -r requirements.txt
-#tmux new -d 'flask run --host=0.0.0.0'
-
 cd amber-web
 git fetch && git reset origin/main --hard
-source python3-virtualenv/bin/activate
-pip install -r requirements.txt
-systemctl daemon-reload
-systemctl restart myportfolio
+docker compose -f docker-compose.prod.yml down
+docker compose -f docker-compose.prod.yml dup -d --build
+
+# source python3-virtualenv/bin/activate
+# pip install -r requirements.txt
+# systemctl daemon-reload
+# systemctl restart myportfolio
