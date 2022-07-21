@@ -33,22 +33,6 @@ class TimelinePost(Model):
 mydb.connect()
 mydb.create_tables([TimelinePost])
 
-"""
-class nav:
-    def __init__(self, url, people, label):
-        self.url = url
-        self.people = people
-        self.label = label
-
-profile_nav = nav(
-    ["", "work_edu", "hobbies"],
-    ["amber", "jacky", "william"],
-    ["About Me", "Work Experience/Education", "Hobbies"]
-)
-"""
-
-
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -99,13 +83,7 @@ def jacky():
 @app.route('/william')
 def william():
     return render_template('william.html', nav=profile_nav, title="William", url=os.getenv("URL"))
-"""
 
-
-
-
-
-"""
 # for work experience/education page
 @app.route('/work_edu/<name>')
 def work_edu(name):
